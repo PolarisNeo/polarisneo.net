@@ -1,38 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>polarisneo</title>
+    <title>polarisneo — Iceberg Explained Videos &amp; Deep Dives</title>
 
     <!-- Meta tags -->
-    <meta name="title" content="polarisneo">
-    <!-- TODO: Description is very generic, need to update - same with keywords  -->
-	<meta name="description" content="polarisneo is a youtube channel creating videos on interesting topics covering a variety of topics.">
-	<meta name="keywords" content="polaris, neo, polarisneo, youtube, youtuber, channel, videos, uk youtube">
-	<meta name="robots" content="index, follow">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="language" content="English">
-	<meta name="revisit-after" content="1 days">
-	<meta name="author" content="polarisneo">
+    <meta name="description" content="polarisneo makes iceberg explained videos and deep dives into video game mysteries, cut content and hidden lore — starting with the LEGO Batman: The Video Game iceberg.">
+    <meta name="keywords" content="polarisneo, iceberg explained, iceberg chart, lego batman iceberg, video game mysteries, cut content, deep dive, video essay">
+    <meta name="author" content="polarisneo">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#1f2937">
+    <link rel="canonical" href="https://polarisneo.net/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="polarisneo">
+    <meta property="og:url" content="https://polarisneo.net/">
+    <meta property="og:title" content="polarisneo">
+    <meta property="og:description" content="Videos about things I find interesting">
+    <meta property="og:image" content="https://polarisneo.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thepolarisneo">
+    <meta name="twitter:creator" content="@thepolarisneo">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="./site.webmanifest">
-    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Thumbnails are served from YouTube's image CDN -->
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
-</head>
-<body class="h-screen w-screen flex justify-center items-center bg-gray-800">
+    <link rel="stylesheet" href="./styles.css">
 
-    <div class="flex justify-center items-center flex-col">
-        <img src="logo.png" class="w-1/3 flex-none mb-4">
-        <a href="https://linktr.ee/polarisneo" target="_blank" class="text-blue-300 text-lg hover:text-blue-200">⊛ View Linktree ⊛</a>
-    </div>
-    
+    <!-- Structured data: tells Google this is a channel with videos on it -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://polarisneo.net/#website",
+                "url": "https://polarisneo.net/",
+                "name": "polarisneo",
+                "description": "Videos about things I find interesting",
+                "inLanguage": "en-GB",
+                "publisher": { "@id": "https://polarisneo.net/#person" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://polarisneo.net/#person",
+                "name": "polarisneo",
+                "url": "https://polarisneo.net/",
+                "image": "https://polarisneo.net/android-chrome-512x512.png",
+                "sameAs": [
+                    "https://www.youtube.com/@polarisneo",
+                    "https://twitter.com/thepolarisneo",
+                    "https://www.tiktok.com/@thepolarisneo",
+                    "https://linktr.ee/polarisneo"
+                ]
+            },
+            {
+                "@type": "VideoObject",
+                "name": "This LEGO Batman: The Video Game Iceberg Explained",
+                "description": "A deep-dive into the full iceberg chart for LEGO Batman: The Video Game — cut content, hidden references to The Killing Joke and No Man's Land, and how the game ties in with Christopher Nolan's The Dark Knight.",
+                "thumbnailUrl": "https://i.ytimg.com/vi/xHkIKNPjqr0/maxresdefault.jpg",
+                "uploadDate": "2022-02-17T23:15:03+00:00",
+                "duration": "PT22M3S",
+                "contentUrl": "https://www.youtube.com/watch?v=xHkIKNPjqr0",
+                "embedUrl": "https://www.youtube.com/embed/xHkIKNPjqr0",
+                "author": { "@id": "https://polarisneo.net/#person" }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+    <main class="page">
+
+        <header class="hero">
+            <h1><img src="./logo.png" alt="polarisneo" class="logo" width="1263" height="175" fetchpriority="high"></h1>
+            <p class="actions">
+                <a href="https://www.youtube.com/@polarisneo?sub_confirmation=1" class="button" rel="noopener">Subscribe on YouTube</a>
+                <a href="https://linktr.ee/polarisneo" class="link" rel="noopener">⊛ View Linktree ⊛</a>
+            </p>
+        </header>
+
+        <section class="videos" aria-labelledby="videos-heading">
+            <h2 id="videos-heading">Videos</h2>
+
+            <!--
+                These cards are the real, crawlable video list and render with no JavaScript.
+                videos.js replaces them at runtime with the live list from YouTube when an
+                API key is configured — see README.md.
+            -->
+            <ul class="video-grid" id="video-grid">
+                <li class="video">
+                    <a href="https://www.youtube.com/watch?v=xHkIKNPjqr0" rel="noopener">
+                        <img src="https://i.ytimg.com/vi/xHkIKNPjqr0/mqdefault.jpg"
+                             srcset="https://i.ytimg.com/vi/xHkIKNPjqr0/mqdefault.jpg 320w, https://i.ytimg.com/vi/xHkIKNPjqr0/hq720.jpg 1280w"
+                             sizes="320px"
+                             alt="This LEGO Batman: The Video Game Iceberg Explained"
+                             class="video-thumb" width="320" height="180">
+                        <h3 class="video-title">This LEGO Batman: The Video Game Iceberg Explained</h3>
+                        <p class="video-meta"><time datetime="2022-02-17">17 February 2022</time></p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; polarisneo</p>
+        </footer>
+
+    </main>
+
+    <script src="./videos.js" defer></script>
+
 </body>
 </html>

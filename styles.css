@@ -1,0 +1,144 @@
+/* polarisneo.net */
+
+:root {
+    --bg: #1f2937;
+    --surface: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #93c5fd;
+    --accent-hover: #bfdbfe;
+    --radius: 8px;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    /* Sized so cards land at ~310px, matching the 320px thumbnail YouTube serves */
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.logo {
+    width: min(100%, 420px);
+    margin: 0 auto 1.5rem;
+}
+
+.tagline {
+    max-width: 46ch;
+    margin: 0 auto;
+    color: var(--muted);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2rem;
+}
+
+.button {
+    background: var(--accent);
+    color: var(--surface);
+    font-weight: 600;
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius);
+    transition: background-color 0.15s;
+}
+
+.button:hover,
+.button:focus-visible { background: var(--accent-hover); }
+
+.link {
+    color: var(--accent);
+    transition: color 0.15s;
+}
+
+.link:hover,
+.link:focus-visible { color: var(--accent-hover); }
+
+/* Videos */
+.videos h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.video-grid {
+    display: grid;
+    /* Capped at 320px so the 320px-wide YouTube thumbnail is never upscaled,
+       which keeps 1x displays on the 18KB image instead of the 173KB one */
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 320px));
+    justify-content: center;
+    gap: 2rem 1.5rem;
+}
+
+.video a {
+    display: block;
+    border-radius: var(--radius);
+}
+
+.video-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: opacity 0.15s;
+}
+
+.video a:hover .video-thumb,
+.video a:focus-visible .video-thumb { opacity: 0.8; }
+
+.video-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+}
+
+.video a:hover .video-title,
+.video a:focus-visible .video-title { color: var(--accent); }
+
+.video-meta {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* Footer */
+.footer {
+    margin-top: 4rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* Keep focus rings visible for keyboard users */
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
